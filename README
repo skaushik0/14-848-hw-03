@@ -34,6 +34,7 @@ year. For instance, 1993 gives:
      - Hocus Pocus                                                     1993
      - Jurassic Park                                                   1993
      - Schindler's List                                                1993
+
 FILES
 
     - script.py
@@ -42,6 +43,17 @@ FILES
     - Makefile
       Helper scripts to run "script.py" and clean-up the resources created
       by it.
+
+      In the terminal, running
+
+        $ make
+
+      ... will run the script which creates the bucket, table, uploads
+      data and run queries.
+
+      To clean up the bucket and the table, run:
+
+        $ make clean
 
     - data/{ins/aws}
       Sample data files; ins/* has files from the assignment handout,
