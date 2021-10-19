@@ -1,0 +1,52 @@
+hw-03
+-----
+
+This repository contains the source for 14-848: HW-03 (NoSQL) homework.
+The script, "script.py" is used to upload the sample data file which is
+located in "data/aws/moviedata.zip"), unzips it and uploads it to an S3
+bucket. The unzipped file, which has a JSON document of the movie data
+is parsed and inserted as records into a DynamoDB table, which will be
+queried from.
+
+The JSON file has data in the following format:
+
+    [
+       {
+          "year" : ... ,
+          "title" : ... ,
+          "info" : { ... }
+       },
+       {
+          "year" : ...,
+          "title" : ...,
+          "info" : { ... }
+       },
+
+        ...
+
+    ]
+
+The query is to return all the movies that are in the table for a particular
+year. For instance, 1993 gives:
+
+    inf: db_query: 'KeyConditionExpression=Key('year').eq(1993)'
+     - Dazed and Confused                                              1993
+     - Hocus Pocus                                                     1993
+     - Jurassic Park                                                   1993
+     - Schindler's List                                                1993
+FILES
+
+    - script.py
+      Uploads data to an S3 bucket and a DynamoDB table and queries for it.
+
+    - Makefile
+      Helper scripts to run "script.py" and clean-up the resources created
+      by it.
+
+    - data/{ins/aws}
+      Sample data files; ins/* has files from the assignment handout,
+      while aws/* has sample movie data. The script uses the latter.
+      The structure of the JSON file is described above.
+
+    - images/*
+      Screenshots from the terminal running queries for the uploaded data.
