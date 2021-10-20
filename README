@@ -26,6 +26,30 @@ The JSON file has data in the following format:
 
     ]
 
+The "info" section of the JSON document for each entry does not have
+the same keys for all entries. The JSON document is unstructured.
+
+For instance, getting all the keys in "info" shows:
+
+    >>> for i in json.loads('./data/aws/moviedata.json'):
+    ...    print(i['info'].keys())
+
+    dict_keys(['directors', 'release_date', 'rating', 'genres', 'image_url',
+    'plot', 'rank', 'running_time_secs', 'actors'])
+    dict_keys(['directors', 'release_date', 'rating', 'genres', 'image_url',
+    'plot', 'rank', 'running_time_secs', 'actors'])
+    dict_keys(['directors', 'release_date', 'rating', 'genres', 'image_url',
+    'rank', 'running_time_secs', 'actors'])
+    dict_keys(['directors', 'release_date', 'rating', 'genres', 'image_url',
+    'plot', 'rank', 'running_time_secs', 'actors'])
+    dict_keys(['directors', 'release_date', 'rating', 'genres', 'image_url',
+    'plot', 'rank', 'running_time_secs', 'actors'])
+    dict_keys(['directors', 'release_date', 'rating', 'genres', 'plot',
+    'rank', 'running_time_secs', 'actors'])
+
+Note: The use of this JSON document has been approved by the professor
+      during office hours.
+
 The query is to return all the movies that are in the table for a particular
 year. For instance, 1993 gives:
 
